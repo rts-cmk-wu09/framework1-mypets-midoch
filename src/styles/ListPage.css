@@ -1,0 +1,53 @@
+.list-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.list-page-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.pets-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pet-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.pet-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.pet-details {
+  flex: 1;
+}
+
+.pet-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.pet-location {
+  font-size: 14px;
+  color: gray;
+  margin-bottom: 10px;
+}
+
+.pet-description {
+  font-size: 14px;
+}
+
+/* Add any additional styles as needed */
