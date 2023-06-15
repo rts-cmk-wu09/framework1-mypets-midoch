@@ -1,19 +1,21 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
-import AboutPage from "./pages/AboutPage";
 import ListPage from "./pages/ListPage";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
 
-const App = () => {
+function App() {
+  const [context, setContext] = useState({});
+
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/list" element={<ListPage />} />
-      </Routes>
-    </Router>
+    <>
+      {/* <AuthContext.Provider value={auth}> */}
+      <Outlet context={[context, setContext]} />
+
+      {/* </AuthContext.Provider> */}
+    </>
   );
-};
+}
 
 export default App;
