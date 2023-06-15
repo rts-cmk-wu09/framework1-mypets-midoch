@@ -1,21 +1,22 @@
 import axios from "axios";
 
-const API_KEY = "AydLMe7AV8wzL4L91AWEvphShFp1QFjtjZdGO4ihh5CJ2a3Hzd";
+const API_KEY = "AydLMe7AV8wzL4L91AWEvphShFp1QFjtjZdGO4ihh5CJ2a3Hzd"; // Replace with your actual Petfinder API key
+const API_SECRET = "Hm309TbhLlfaGhxE9XkwCE8aLWaQdOtTSRfh0IwF"; // Replace with your actual Petfinder API secret
 
-const fetchPets = async () => {
+// Get a list of pets
+export const getPets = async (type) => {
   try {
-    const response = await axios.get("https://api.petfinder.com/v2/animals", {
-      headers: {
-        Authorization: `Bearer ${API_KEY}`,
-      },
-    });
-    const data = response.data;
-    console.log("Fetched pets data:", data);
-    return data.animals;
+    const response = await axios.get(
+      `https://api.petfinder.com/v2/animals?type=${type}`,
+      {
+        headers: {
+          Authorization: `Bearer ${API_KEY}:${API_SECRET}`,
+        },
+      }
+    );
+    return response.data;
   } catch (error) {
-    console.log("Error fetching pets:", error);
+    console.error("Error fetching pets:", error);
     throw error;
   }
 };
-
-export default fetchPets;
